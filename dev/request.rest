@@ -1,0 +1,133 @@
+##############################################################
+# Mobile Application Programming (SCSJ3623)
+# Semester 2, 2019/2020
+##############################################################
+
+# REST API Server on Local Firebase
+ #@baseUrl = http://localhost:5001/jumail-backend-firebase-c1ff0/us-central1/api
+
+# REST API Server on Live Firebase
+@baseUrl = https://us-central1-qats-ems.cloudfunctions.net/api
+
+### Example of endpoints for basic CRUD operations.
+#    Later in your submission, leave only the one that you actually use and remove others from this file.
+
+
+### Get the list of leave
+GET {{baseUrl}}/leave
+
+### Get the list of task
+GET {{baseUrl}}/task
+
+### Get the list of user
+GET {{baseUrl}}/user
+
+###  Getting a leave for a given id
+GET {{baseUrl}}/leave/6m6Lg9B9XpRI2dSUkyHG
+
+
+###  Getting a task for a given id
+GET {{baseUrl}}/task/sPM4gy26apShuI3DfjjW
+
+
+###  Getting a individual leave for a given id
+GET {{baseUrl}}/leave/p3TMWHZUFIV8Gu2jv0GFmIvHKol2/myleave
+
+###  Getting a individual task for a given id
+GET {{baseUrl}}/task/p3TMWHZUFIV8Gu2jv0GFmIvHKol2/mytask
+
+###  Getting a individual profile for a given id
+GET {{baseUrl}}/user/p3TMWHZUFIV8Gu2jv0GFmIvHKol2/myprofile
+
+###  Getting a user for a given id
+GET {{baseUrl}}/user/De3ytdC8qjaMXUO9qYfR
+
+
+
+###  Add a new leave
+POST {{baseUrl}}/leave
+Content-Type: application/json
+
+{
+    "leave_from": "26-7-2019",
+    "leave_to": "26-9-2019",
+    "reason" : "rindrinduu",
+    "type" : "rumah"
+}
+
+
+###  Add a new task
+POST {{baseUrl}}/task
+Content-Type: application/json
+
+{
+    "assign": "Suraya",
+    "title": "HAHAH",
+    "completed" : true,
+    "description" : "HAI TASK"
+}
+
+
+###  Add a new user
+POST {{baseUrl}}/user
+Content-Type: application/json
+
+{
+    "email": "z@gmail.com",
+    "name": "Adeen",
+    "department" : "Science",
+    "phone" : "012154",
+    "address" : "Benut"
+
+}
+
+### Update a task partly
+PATCH {{baseUrl}}/task/LQqdnXfcOAwo1UZZsu94
+Content-Type: application/json
+
+{
+        "completed" : false
+}
+
+###
+PATCH {{baseUrl}}/task/LQqdnXfcOAwo1UZZsu94
+Content-Type: application/json
+
+{
+   "completed" : true
+}
+
+### Replace an existing user entirely
+PUT {{baseUrl}}/user/MLr4RWU35MJQhvrI1t4x
+Content-Type: application/json
+
+{
+    "email": "z@gmail.com",
+    "name": "Atira",
+    "department" : "Science",
+    "phone" : "012154",
+    "address" : "Benut"
+}
+
+### Delete a leave
+DELETE {{baseUrl}}/leave/offUnY9k4v9enYx7Z08M
+
+
+
+### Delete a task
+DELETE {{baseUrl}}/task/v3Lfma3AaUyc6DZCfDoQ
+
+
+### Delete a user
+DELETE {{baseUrl}}/user/UKcvUzAUnsEnQ4n1HydF
+
+
+
+### Thumb up (or Like) - Update the 'like' attribute by inreasing by 1
+
+PATCH {{baseUrl}}/leave/Z1PrL7oZJmrQVei3NVD0/like
+
+### Thumb down (or Dislike) - Update the 'dislike' attribute by inreasing by 1
+
+PATCH {{baseUrl}}/leave/Z1PrL7oZJmrQVei3NVD0/dislike
+
